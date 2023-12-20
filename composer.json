@@ -1,5 +1,6 @@
 {
     "require": {
-        "agungsugiarto/codeigniter4-cors": "^1.1"
+        "agungsugiarto/codeigniter4-cors": "^1.1",
+        "myth/auth": "^1.0"
     }
 }

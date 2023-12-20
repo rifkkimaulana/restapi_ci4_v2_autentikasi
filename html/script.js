@@ -5,6 +5,9 @@ function fetch_data() {
   $.ajax({
     type: "GET",
     url: "http://localhost:8080/api/produk?search=" + searchTerm,
+    headers: {
+      "X-API-Key": "asdasd",
+    },
     dataType: "JSON",
     success: function (response) {
       $("#card_data").html("");

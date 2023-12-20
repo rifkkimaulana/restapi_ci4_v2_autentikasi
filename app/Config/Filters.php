@@ -13,6 +13,7 @@ class Filters extends BaseConfig
 		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
 		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
 		'cors' => \Fluent\Cors\Filters\CorsFilter::class,
+		'apiKey' => \App\Filters\ApiKeyFilter::class,
 	];
 
 	// Always applied before every request
@@ -24,6 +25,25 @@ class Filters extends BaseConfig
 		'after'  => [
 			'toolbar',
 			//'honeypot'
+		],
+	];
+
+	public $response = [
+		'headers' => [
+			'Access-Control-Allow-Origin' => ['*'],
+			'Access-Control-Allow-Methods' => ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
+			'Access-Control-Allow-Headers' =>
+			[
+				'X-Requested-With',
+				// 'Content-Type', 
+				'Origin',
+				'Authorization',
+				'Accept',
+				'X-API-Key'
+			],
+			'Access-Control-Allow-Credentials' => false,
+			// 'Access-Control-Max-Age' => 86400,
+
 		],
 	];
 
@@ -42,5 +62,7 @@ class Filters extends BaseConfig
 			'before' => ['api/*'],
 			'after' => ['api/*']
 		],
+		'apiKey' => ['before' => ['api/*']],
+
 	];
 }

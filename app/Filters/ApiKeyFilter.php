@@ -15,8 +15,8 @@ class ApiKeyFilter implements FilterInterface
     {
         $this->response = \Config\Services::response();
 
-        //$apiKey = $request->getServer('HTTP_X_API_KEY');
-        $apiKey = 'sdsdsd';
+        $apiKey = $request->getServer('HTTP_X_API_KEY');
+        // $apiKey = 'sdsdsd';
 
         if (empty($apiKey) || !$this->isValidApiKey($apiKey)) {
             return $this->failUnauthorized('Invalid API Key');
